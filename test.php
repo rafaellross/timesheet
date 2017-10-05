@@ -11,6 +11,6 @@
 
 </style>
 <body>
-    <div id="test"></div>
+    <div id="test">Modified</div>
 </body>
 </html>

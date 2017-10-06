@@ -3,12 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/timesheet/test.php</file>
             <file>file:/C:/xampp/htdocs/timesheet/js/script_test.js</file>
             <file>file:/C:/xampp/htdocs/timesheet/js/render.js</file>
             <file>file:/C:/xampp/htdocs/timesheet/js/script.js</file>
             <file>file:/C:/xampp/htdocs/timesheet/start.php</file>
             <file>file:/C:/xampp/htdocs/timesheet/js/html_helper.js</file>
+=======
+            <file>file:/var/www/html/timesheet/js/Utilities.js</file>
+            <file>file:/var/www/html/timesheet/index.php</file>
+            <file>file:/var/www/html/timesheet/js/script.js</file>
+            <file>file:/var/www/html/timesheet/select-employees.php</file>
+            <file>file:/var/www/html/timesheet/start.php</file>
+            <file>file:/var/www/html/timesheet/inc/class/DAL.php</file>
+>>>>>>> 631ca2830a932a8e8f45f148184f0feebbc36177
         </group>
     </open-files>
 </project-private>

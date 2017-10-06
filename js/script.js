@@ -1,6 +1,31 @@
 /* global Utilities, Html */
 
 $(document).ready(function(){
+    
+$('#btn-search').click(function(){
+    var name = $('#search-input').val();
+    if (name !== "") {
+        $('#employee').empty();
+        Utilities.listEmployees(name);            
+    }
+});
+
+var selected = [];
+
+
+
+$(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+  
+$('#btn-show-all').click(function(){
+    $('#employee').empty();   
+   Utilities.listEmployees();
+    
+});
     var weekDays = [
         {
            "Number" : 0,
@@ -31,11 +56,14 @@ $(document).ready(function(){
            "Description" : "Saturday"                                               
         }
     ];
+
     
-   	$('.btnLink').click(function(){
-		url = "?content=" + this.id.split('-')[1] ;
-		$(location).attr("href", url);				
-	});
+    
+    $('.btnLink').click(function(){
+            url = "?content=" + this.id.split('-')[1] ;
+            
+            $(location).attr("href", url);				
+    });
 
 	$.each(weekDays, function( index, value ) {
             if (index !== 0) {
@@ -80,4 +108,7 @@ $(document).ready(function(){
 	        var totalHour = Utilities.minutesToHour(totalMin);
 	        $('.ts-total').text(totalHour);
 	}   
+            
+
+        
 });

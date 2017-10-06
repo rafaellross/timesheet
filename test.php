@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta name="viewport" content="width=device-width,initial-scale=1" />	
-	<script src="js/jquery.min.js"></script>	
-	<script src="js/script_test.js"></script>	
-        <script src="js/html_helper.js"></script>	
-</head>
-<style type="text/css">
-
-</style>
+<html lang="en">
 <body>
-    <div id="test">Modified</div>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        Select image to upload:
+        <input type="file" name="image"/>
+        <input type="submit" name="submit" value="UPLOAD"/>
+    </form>
 </body>
 </html>

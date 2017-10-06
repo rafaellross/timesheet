@@ -17,7 +17,7 @@
 
                    var select = Utilities.loadEmployee(this.id);
                    selected.push(select);
-                   console.log(select);
+
                });   
                 
             });

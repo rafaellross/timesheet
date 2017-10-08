@@ -4,7 +4,7 @@
 require_once(dirname(__FILE__) . '/conf/config.php');
 
 
-$con = @mysqli_connect('localhost', 'root', '', 'timesheet');
+$con = @mysqli_connect('localhost', 'root', 'root', 'timesheet');
 
 if (!$con) {
     echo "Error: " . mysqli_connect_error();

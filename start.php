@@ -28,8 +28,8 @@
             <?php
             $content = filter_input(INPUT_GET, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
             if (is_null($content)) {
-                echo '	<div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
-                                <button type="button" class="btn btn-primary btn-lg btn-block btnLink" id="btn-selectemployees">Include new Timesheet</button>							
+                echo '	<div class="col-xs-6 col-sm-6 col-md-12 col-lg-12" style="margin-top: 10%;">
+                                <button type="button" class="btn btn-primary btn-lg btn-block btnLink" id="btn-selectemployees" role="button" aria-pressed="true">Include new Timesheet</button>							
                                 <button type="button" class="btn btn-secondary btn-lg btn-block btnLink" id="btn-manage">Manage Timesheets</button>		
                         </div>		
                 ';

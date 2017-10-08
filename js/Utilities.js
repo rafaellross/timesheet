@@ -53,12 +53,57 @@ class Utilities{
     }
     
     static loadEmployee(employeeID){
-        $.getJSON( "list-employees.php?id=" + employeeID, function( data ) {
-            return data;
-        });
+        var employee = {
+            id : null,
+            name : null
+        };
+        if (employee !== 'undefined') {
+            $.getJSON( "list-employees.php?id=" + employeeID, function( data ) {
+                $.each( data, function(key, val) {
+                    employee.id = val.id;
+                    employee.name = val.name;
+                });
+            });
+            
+        }
+        return employee;
     }
-    static employeeForSelectList(employee){
+    
+    static containsObject(obj, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i].id === obj.id) {
+            return true;
+        }
+    }
+        return false;
+    }
+    
+    static removeEmployee(arr, employeeId){
+        var result = [];
+        $.each( arr, function(key, val) {
+            if (val.id !== employeeId) {
+                result.push(val);
+            }
+            return result;
+        });
         
+    }
+    
+    static employeeForSelectList(employee, selected = false){
+        var typeButton;
+        var classButton;
+        var buttonValue;
+        if (selected) {
+            typeButton = "btn-danger";
+            classButton = "btnRemove";
+            buttonValue = "Remove";
+        }else{
+            typeButton = "btn-primary";
+            classButton = "btnAdd";            
+            buttonValue = "Add";
+        }
+            
         var result = `    
                         <div class="card">
                           <div class="card-header" role="tab" id="heading-` + employee.id + `">    
@@ -67,7 +112,7 @@ class Utilities{
                                   <a class="collapsed" data-toggle="collapse" href="#collapse` + employee.id + `" aria-expanded="true" aria-controls="collapse-` + employee.id + `">
                                   <span>` + employee.name + `</span>
                                   </a>
-                                 <button type="button" class="btnAdd btn btn-primary float-right" id="` + employee.id + `">Add</button>
+                                 <button type="button" class="`+ classButton + ` btn ` + typeButton + ` float-right btn-lg" id="` + employee.id + `">`+ buttonValue + `</button>
                               </div>       
                             </h5> 
                           </div>        
@@ -111,8 +156,30 @@ class Utilities{
                         <span>` + employee +` </span>
                       </div>`;
         return result;
+    }        
+    
+    
+    static uniqueold(list) {
+        var result = [];
+        $.each(list, function(i, e) {
+            if ($.inArray(e, result) === -1) result.push(e);
+        });
+        return result;
     }
-    
-    
 
+    static unique(list) {
+    var result = [];
+    $.each(list, function(i, e) {
+      if ($.inArray(e, result) == -1) result.push(e);
+    });
+    return result;
+  }
+
+    static updateSeleteds(selecteds){
+        $('#employees-selected').empty();
+        selecteds = Utilities.unique(selecteds);
+        $.each( selecteds, function( key, val ) {
+            $('#employees-selected').append(Utilities.employeeForSelectList(val, true));
+        });
+    }
 }

@@ -1,7 +1,8 @@
 /* global Utilities, Html */
-
+jQuery.ajaxSetup({async:false});
 $(document).ready(function(){
     
+  
 $('#btn-search').click(function(){
     var name = $('#search-input').val();
     if (name !== "") {
@@ -11,6 +12,21 @@ $('#btn-search').click(function(){
 });
 
 var selected = [];
+$(document).on( "click", ".btnAdd", function() {
+    var id = $(this).attr('id');  
+    var select = Utilities.loadEmployee(id);
+    if (!Utilities.containsObject(select, selected)){
+        selected.push(select);
+        Utilities.updateSeleteds(selected);
+        $(this).parent().parent().parent().parent().parent().fadeOut();
+    }            
+});
+
+$(document).on( "click", ".btnRemove", function() {
+    $(this).parent().parent().parent().parent().parent().fadeOut();
+    selected = Utilities.removeEmployee(selected, $(this.id));
+    var test = selected;
+});
 
 
 

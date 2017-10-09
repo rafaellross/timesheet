@@ -11,20 +11,16 @@
         <script src="js/html_helper.js"></script>
         <script src="js/Utilities.js"></script>
         <script src="js/render.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                    $('.btnAdd').click(function(){  
-
-                   var select = Utilities.loadEmployee(this.id);
-                   selected.push(select);
-
-               });   
-                
-            });
-        </script>
+        <?php
+        $script = filter_input(INPUT_GET, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
+        if (!is_null($script)) {
+            echo '<script src="js/' . $script . '.js"></script>';
+        } 
+        ?>
     </head>
     <body>
         <div class="container">
+            
             <?php
             $content = filter_input(INPUT_GET, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
             if (is_null($content)) {

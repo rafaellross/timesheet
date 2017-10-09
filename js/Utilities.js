@@ -189,7 +189,7 @@ class Utilities{
     static updateSeleteds(selecteds){
         $('#employees-selected').empty();
         selecteds = Utilities.unique(selecteds);
-        $('#employees-selected').append("<h6>Selected Employees:</h6>");
+        
         $.each( selecteds, function( key, val ) {
             $('#employees-selected').append(Utilities.employeeForSelectList(val, true));
         });

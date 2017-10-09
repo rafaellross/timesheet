@@ -4,12 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/timesheet/js/Utilities.js</file>
-            <file>file:/C:/xampp/htdocs/timesheet/js/script_test.js</file>
-            <file>file:/C:/xampp/htdocs/timesheet/test.php</file>
+            <file>file:/C:/xampp/htdocs/timesheet/test/index.php</file>
+            <file>file:/C:/xampp/htdocs/timesheet/js/selectemployees.js</file>
             <file>file:/C:/xampp/htdocs/timesheet/js/script.js</file>
             <file>file:/C:/xampp/htdocs/timesheet/start.php</file>
+            <file>file:/C:/xampp/htdocs/timesheet/new.php</file>
             <file>file:/C:/xampp/htdocs/timesheet/selectemployees.php</file>
-            <file>file:/C:/xampp/htdocs/timesheet/list-employees.php</file>
+            <file>file:/C:/xampp/htdocs/timesheet/js/new.js</file>
         </group>
     </open-files>
 </project-private>

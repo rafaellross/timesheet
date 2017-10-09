@@ -4,7 +4,7 @@
 require_once(dirname(__FILE__) . '/conf/config.php');
 
 
-$con = @mysqli_connect('localhost', 'root', 'root', 'timesheet');
+$con = @mysqli_connect('localhost', 'root', '', 'timesheet');
 
 if (!$con) {
     echo "Error: " . mysqli_connect_error();
@@ -34,7 +34,7 @@ $resul = array();
 
 while ($row = mysqli_fetch_array($query))
 {
-    $image = '<img src="data:image/jpeg;base64,' . base64_encode( $row['image'] ) . '" class="rounded float-left" alt="..." style="width: 200px;"/>';
+    $image = '<img src="data:image/jpeg;base64,' . base64_encode( $row['image'] ) . '" class="rounded float-left img-fluid" alt="..." style="width: 200px;"/>';
     $myOjb = new Employee($row['id'], $row['codemp'], $row['name'], $row['dob'], $row['phone'], $image);
     array_push($resul, $myOjb);	    
 }

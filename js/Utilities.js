@@ -40,6 +40,7 @@ class Utilities{
         $.getJSON( "list-employees.php?name=" + name, function( data ) {            
          var items = [];
          items.push('<div id="accordion" role="tablist">');
+         items.push('<h6>Search Results:</h6>');
          $.each( data, function( key, val ) {
              
            items.push(Utilities.employeeForSelectList(val));
@@ -90,6 +91,16 @@ class Utilities{
         
     }
     
+       static findObjIndex(arr, property, value){
+        var result = -1;
+        $.each( arr, function(key, val) {
+            if (val[property] === value) {                
+                result = key;
+            }            
+        });
+        return result;
+    }    
+    
     static employeeForSelectList(employee, selected = false){
         var typeButton;
         var classButton;
@@ -107,23 +118,23 @@ class Utilities{
         var result = `    
                         <div class="card">
                           <div class="card-header" role="tab" id="heading-` + employee.id + `">    
-                            <h5 class="mb-0">
+                            <h6 class="mb-0">
                               <div>
                                   <a class="collapsed" data-toggle="collapse" href="#collapse` + employee.id + `" aria-expanded="true" aria-controls="collapse-` + employee.id + `">
                                   <span>` + employee.name + `</span>
                                   </a>
-                                 <button type="button" class="`+ classButton + ` btn ` + typeButton + ` float-right btn-lg" id="` + employee.id + `">`+ buttonValue + `</button>
+                                 <button type="button" class="`+ classButton + ` btn ` + typeButton + ` float-right" id="` + employee.id + `">`+ buttonValue + `</button>
                               </div>       
-                            </h5> 
+                            </h6> 
                           </div>        
                           </div>
                           <div id="collapse` + employee.id + `" class="collapse" role="tabpanel" aria-labelledby="heading` + employee.id + `" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         ` + employee.image + `
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <div class="col-12">
                                          <h4 class="card-title">Name</h4>
                                          <h6 class="card-subtitle mb-2 text-muted">` + employee.name + `</h6>                     
@@ -178,6 +189,7 @@ class Utilities{
     static updateSeleteds(selecteds){
         $('#employees-selected').empty();
         selecteds = Utilities.unique(selecteds);
+        $('#employees-selected').append("<h6>Selected Employees:</h6>");
         $.each( selecteds, function( key, val ) {
             $('#employees-selected').append(Utilities.employeeForSelectList(val, true));
         });

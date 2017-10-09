@@ -23,15 +23,13 @@ $(document).on( "click", ".btnAdd", function() {
 });
 
 $(document).on( "click", ".btnRemove", function() {
-    $(this).parent().parent().parent().parent().parent().fadeOut();
-    selected = Utilities.removeEmployee(selected, $(this.id));
-    var test = selected;
+    $(this).parent().parent().parent().parent().fadeOut();
+    var itemIndex = Utilities.findObjIndex(selected, "id", this.id);
+    selected.splice(itemIndex, 1);        
 });
 
-
-
 $(window).keydown(function(event){
-    if(event.keyCode == 13) {
+    if(event.keyCode === 13) {
       event.preventDefault();
       return false;
     }

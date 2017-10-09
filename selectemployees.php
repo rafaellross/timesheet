@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-auto">
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
         <button type="button" class="btn btn-primary btnLink btn-lg" id="btn-index">Back</button>
     </div> 
 
-    <div class="col-md-8 col-lg-8 ml-auto">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
     <form action="#">
       <div class="form-row">
         <div class="col-auto">
